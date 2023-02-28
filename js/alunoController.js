@@ -26,7 +26,7 @@ function listarAlunos(){
 
 function salvarAluno(){
     event.preventDefault();
-    let alunos = JSON.parse(localStorage.getItem('alunos');)
+    let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
 
     let aluno = {
         nome: nome.value,
@@ -37,11 +37,13 @@ function salvarAluno(){
     alunos.push(aluno);
     localStorage.setItem('alunos', JSON.stringify(alunos));
     alert("Salvo com sucesso!");
+}
 
 //UPDATE
 
-function atualizarAluno(){}
+function atualizarAluno(){};
 
 //DELETE
+function deletarAluno(){
 
-function deletarAluno(){}
+};

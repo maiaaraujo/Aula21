@@ -9,7 +9,7 @@ function alterarCores() {
         document.body.classList.add('bg-dark');
         document.body.classList.add('text-white');
         // document.getElementById('tabela').classList.add('table-dark');
-        tabela.classList.add('table-dark');
+        //tabela.classList.add('table-dark');
 
         document.querySelectorAll('[class="btn btn-warning"]').forEach(function (cadaBotao) {
             cadaBotao.classList.remove('btn-warning');
@@ -19,7 +19,7 @@ function alterarCores() {
     } else {
         document.body.classList.remove('bg-dark');
         document.body.classList.remove('text-white');
-        tabela.classList.remove('table-dark');
+       // tabela.classList.remove('table-dark');
 
         document.querySelectorAll('[class="btn btn-outline-warning"]').forEach(function (cadaBotao) {
             cadaBotao.classList.add('btn-warning');
