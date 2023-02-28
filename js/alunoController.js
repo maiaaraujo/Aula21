@@ -7,6 +7,7 @@ function listarAlunos(){
     
     
     let tabela = document.getElementById("tabela-body");
+    tabela.innerHTML = "";
     alunos.forEach((aluno, key) => {
         tabela.innerHTML += `<tr>
                                 <td>${key}</td>
@@ -46,7 +47,17 @@ function atualizarAluno(){};
 //DELETE
 function deletarAluno(id){
     let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
-    alert(id);
+    let alunosAtualizado = [];
+    alunos.forEach((aluno, key)  => {
+        if(id != key){
+            alunosAtualizado.push(aluno);
+        }
+        localStorage.setItem('alunos', JSON.stringify(alunosAtualizado));
+
+    });
+    alert("Aluno excluído com sucesso");
+
+    listarAlunos();
 
 
 };
