@@ -3,20 +3,20 @@
 function listarAlunos(){
 
 
-    let alunos = localStorage.getItem('alunos');
+    let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
     
     
     let tabela = document.getElementById("tabela-body");
-    alunos.forEach((aluno) => {
+    alunos.forEach((aluno, key) => {
         tabela.innerHTML += `<tr>
-                                <td>${aluno.id}</td>
+                                <td>${key}</td>
                                 <td>${aluno.nome}</td>
                                 <td>${aluno.email}</td>
                                 <td>${aluno.telefone}</td>
                                 <td>${aluno.cidade}</td>
                                 <td>
                                     <button class="btn btn-warning">Editar</button>
-                                    <button class="btn btn-danger">Excluir</button>
+                                    <button class="btn btn-danger" onClick="deletarAluno(${key})">Excluir</button>
                                 </td>
                             </tr>`;
     })
@@ -26,7 +26,7 @@ function listarAlunos(){
 
 function salvarAluno(){
     event.preventDefault();
-    let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
+    let alunos = JSON.parse(localStorage.getItem('alunos')) || []; 
 
     let aluno = {
         nome: nome.value,
@@ -44,6 +44,9 @@ function salvarAluno(){
 function atualizarAluno(){};
 
 //DELETE
-function deletarAluno(){
+function deletarAluno(id){
+    let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
+    alert(id);
+
 
 };
